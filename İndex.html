@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Love</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffb6c1,#ffc0cb);
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  width:320px;
+}
+
+.bears{
+  font-size:60px;
+  display:flex;
+  justify-content:space-between;
+  transition:0.6s;
+}
+
+.buttons{
+  margin-top:20px;
+}
+
+button{
+  padding:10px 18px;
+  font-size:16px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  margin:5px;
+}
+
+.yes{
+  background:#ff69b4;
+  color:white;
+}
+
+.no{
+  background:#ccc;
+}
+
+#message{
+  margin-top:15px;
+  font-size:18px;
+  display:none;
+  color:#e91e63;
+}
+
+.hearts span{
+  position:absolute;
+  font-size:24px;
+  animation:fly 3s linear forwards;
+}
+
+@keyframes fly{
+  from{bottom:0;opacity:1;}
+  to{bottom:100%;opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>هل تحبني <span style="color:#e91e63">güzelim</span>؟ ❤️</h2>
+
+  <div class="bears" id="bears">
+    🧸 🧸
+  </div>
+
+  <div class="buttons">
+    <button class="yes" onclick="evet()">نعم</button>
+    <button class="no">لا</button>
+  </div>
+
+  <div id="message">أنا أيضًا أحبك güzelim ❤️</div>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+function evet(){
+  document.getElementById("bears").style.justifyContent="center";
+  document.getElementById("message").style.display="block";
+
+  for(let i=0;i<30;i++){
+    let heart=document.createElement("span");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"%";
+    heart.style.bottom="0";
+    document.getElementById("hearts").appendChild(heart);
+
+    setTimeout(()=>heart.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
